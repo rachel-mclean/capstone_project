@@ -1,0 +1,18 @@
+{
+  "name": "the-know-how-swap",
+  "description": "A web application connecting people who want to teach an old skill and learn a new skill!",
+  "author": "Rachel McLean",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "handlebars": "~4.7.6",
+    "morgan": "~1.9.1"
+  }
+}

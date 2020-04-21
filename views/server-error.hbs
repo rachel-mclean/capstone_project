@@ -1,0 +1,24 @@
+<div id="error-page">
+  <h2>Error</h2>
+
+  <h3>HTTP {{error.status}} - {{message}}</h3>
+  <p>
+    The web server returned a status of <tt>HTTP {{error.status}} - {{message}}</tt>.
+  </p>
+  <p>
+    What does that mean? See the MDN documentation for <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{error.status}}">HTTP {{error.status}} {{message}}</a> to learn more. Don't be afraid to ask your instructor or a classmate if you're still unsure.
+  </p>
+
+  <h3>Stack Trace</h3>
+  <p>
+    Here is the stack trace. It contains a ton of helpful information, including:
+  </p>
+  <ol>
+    <li>The error message</li>
+    <li>The function that caused the error</li>
+    <li>The file name, line number, and character number where the error happened</li>
+    <li>The above information for the sequence of function calls leading up to the error.</li>
+  </ol>
+
+  <pre>{{error.stack}}</pre>
+</div>
