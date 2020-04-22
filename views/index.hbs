@@ -1,0 +1,26 @@
+<header id="page-header">
+  <div class="jumbotron text-center">
+    <h1>The Know How Swap</h1>
+  </div>
+</header>
+
+<div class="container">
+  <div id="home-page"></div>
+    {{#if showButton}}
+    <div class="text-center">
+      <h2 style="color: rgb(250, 250, 186)">Connect with someone to teach an old skill and learn a new skill!</h2>
+      <a style="width: fit-content; margin: 2% auto; color: rgb(250, 250, 186)" href="/sign-in" class="btn btn-primary center-block">Log in</a>
+      <a style="width: fit-content; margin: 2% auto; color: rgb(250, 250, 186)" href="/sign-up" class="btn btn-primary center-block">Make an account</a>
+    </div>
+    {{/if}}
+  {{!-- <h2>Welcome!</h2>
+
+  <p>
+    You're logged in as <a href="mailto:{{user.email}}">{{user.email}}</a></span>.
+  </p>
+
+  <form class="form-signout" action="/sign-out" method="POST">
+    <button class="btn btn-large btn-danger" type="submit">Logout</button>
+  </form> --}}
+  </div>
+</div>
