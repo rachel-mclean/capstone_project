@@ -1,18 +1,15 @@
-<header id="page-header">
-  <div class="jumbotron text-center">
-    <h1>The Know How Swap</h1>
-  </div>
-</header>
-
-<div class="container">
-  <div id="home-page"></div>
-    {{#if showButton}}
-    <div class="text-center">
-      <h2 style="color: rgb(250, 250, 186)">Connect with someone to teach an old skill and learn a new skill!</h2>
-      <a style="width: fit-content; margin: 2% auto; color: rgb(250, 250, 186)" href="/sign-in" class="btn btn-primary center-block">Log in</a>
-      <a style="width: fit-content; margin: 2% auto; color: rgb(250, 250, 186)" href="/sign-up" class="btn btn-primary center-block">Make an account</a>
+{{#if showButtons}}
+  <div id="home-page">
+    <div class="container">
+      <div class="text-center">
+        <h1>The Know-How Swap</h1>
+          <h2>Teach an old skill. Learn a new skill. Connect.</h2>
+            <a style="width: fit-content; margin: 2% auto;" href="/sign-in" class="btn btn-primary btn-lg">Log in</a>
+            <a style="width: fit-content; margin: 2% auto;" href="/sign-up" class="btn btn-primary btn-lg">Make an account</a>
+      </div>
     </div>
-    {{/if}}
+  </div>
+{{/if}}
   {{!-- <h2>Welcome!</h2>
 
   <p>

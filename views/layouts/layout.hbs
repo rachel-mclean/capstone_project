@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{#if title}}{{title}}{{else}}The Know How Swap{{/if}}</title>
+    <title>{{#if title}}{{title}}{{else}}The Know-How Swap{{/if}}</title>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/stylesheets/normalize.css">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   </head>
+  <style>
+    body {
+      background-image: url("https://cdn.discordapp.com/attachments/702392670215077912/702392760287756329/abstract-painting-1109354_1.jpg");
+      background-repeat: no-repeat;
+      background-size: 1536px 1025px;
+    }
+
+    .btn {
+      background-color: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      background-color: rgb(175, 70, 70);
+    }
+
+    h1 {
+      font-size: 110px;
+    }
+
+
+    h1, h2 {
+      margin-top: 50px;
+      color: white;
+      text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    }
+  </style>
   <body>
     <div id="page">
       <div id="page-content">
         {{{body}}}
       </div>
     </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
   </body>
 </html>

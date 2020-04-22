@@ -3,12 +3,18 @@ let User = require('../models/User');
 
 let router = new Router();
 
-// GET /
-router.get('/', (request, response) => {
+// GET
+
+router.get('/', function(req, res, next) {
+  let showButtons = true;
+  res.render('index', {showButtons});
+});
+
+router.get('/sign-in', (request, response) => {
   if (request.user) {
-    response.render('index', { user: request.user });
+    response.redirect('/');
   } else {
-    response.redirect('/sign-in');
+    response.render('sign-in');
   }
 });
 
@@ -23,10 +29,16 @@ router.get('/sign-up', (request, response) => {
 router.post('/sign-up', async (request, response) => {
   let email = request.body.email;
   let password = request.body.password;
+  let username = request.body.username;
+  let existing_skills = request.body.existing_skills;
+  let desired_skills = request.body.desired_skills;
 
   let user = await User.query().insert({
     email: email,
+    username: username,
     password: password,
+    existing_skills: existing_skills,
+    desired_skills: desired_skills
   });
 
   if (user) {
@@ -38,19 +50,11 @@ router.post('/sign-up', async (request, response) => {
   }
 });
 
-router.get('/sign-in', (request, response) => {
-  if (request.user) {
-    response.redirect('/');
-  } else {
-    response.render('sign-in');
-  }
-});
-
 router.post('/sign-in', async (request, response) => {
-  let email = request.body.email;
+  let username = request.body.username;
   let password = request.body.password;
 
-  let user = await User.query().findOne({ email: email });
+  let user = await User.query().findOne({ username: username });
   let passwordValid = user && (await user.verifyPassword(password));
 
   if (passwordValid) {

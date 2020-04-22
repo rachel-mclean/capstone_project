@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url('public/images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: 1536px 1025px;
 }
 
-a {
-  color: #00B7FF;
+.btn {
+  background-color: white;
+  color: black;
+}
+
+.btn-primary:hover {
+  background-color: rgb(179, 47, 47);
+}
+
+h1 {
+  font-size: 110px;
+}
+
+
+h1, h2 {
+  margin-top: 50px;
+  color: white;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
