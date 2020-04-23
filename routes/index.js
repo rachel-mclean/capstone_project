@@ -11,19 +11,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/sign-in', (request, response) => {
-  if (request.user) {
-    response.redirect('/');
-  } else {
-    response.render('sign-in');
-  }
+  response.render('sign-in');
 });
 
 router.get('/sign-up', (request, response) => {
-  if (request.user) {
-    response.redirect('/');
-  } else {
-    response.render('sign-up');
-  }
+  response.render('sign-up');
+});
+
+router.get('/profiles', (request, response) => {
+  response.render('partials/allProfiles');
 });
 
 router.post('/sign-up', async (request, response) => {
@@ -60,7 +56,10 @@ router.post('/sign-in', async (request, response) => {
   if (passwordValid) {
     request.session.userId = user.id;
 
-    response.redirect('/');
+    let users = await User.query();
+
+
+    response.render('index', { users })
   } else {
     response.render('sign-in', { invalidLogin: true });
   }

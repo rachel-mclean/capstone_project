@@ -8,6 +8,7 @@ var logger = require('morgan');
 let handlebars = require('express-handlebars');
 var hbs = require('handlebars');
 var cookieSession = require('cookie-session');
+let moment = require('moment');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -82,9 +83,21 @@ Model.knex(knex);
 let loadUser = require('./loadUser');
 app.use(loadUser);
 
+
+hbs.registerHelper('formatTimestamp', function(timestamp) {
+  return moment(timestamp).format('MMMM Do YYYY');
+});
+
+// var hbs = handlebars.create({
+//   helpers: {
+//     formatTimestamp: function () { return moment(timestampe).format('MMM Do YYYY')}
+//   }
+// })
+
 app.use(express.json());
 
 app.use('/', indexRouter);
+
 
 // If no route handled the request then generate an
 // HTTP 404 Not Found error

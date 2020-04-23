@@ -13,7 +13,7 @@
   </head>
   <style>
     body {
-      background-image: url('public/images/background.jpg');
+      background-image: url('/public/images/background.jpg');
       background-repeat: no-repeat;
       background-size: 1536px 1025px;
     }
@@ -37,17 +37,80 @@
       color: white;
       text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
     }
+
+    .profile-container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: left;
+      align-content: space-between;
+      padding: 2%;
+      width: 80%;
+      margin: 2% auto;
+    }
+
+    .card {
+      margin-top: 10px;
+    }
+
+    .skills {
+      color: white;
+    }
   </style>
   <body>
-        <div id="home-page">
-          <div class="container">
-            <div class="text-center">
-              <h1>The Know-How Swap</h1>
-              <h2>Teach an old skill. Learn a new skill. Connect.</h2>
-              <a style="width: fit-content; margin: 2% auto;" href="/sign-in" class="btn btn-primary btn-lg">Log in</a>
-              <a style="width: fit-content; margin: 2% auto;" href="/sign-up" class="btn btn-primary btn-lg">Make an account</a>
-            </div>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">The Know-How Swap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Find a Swap</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Message Board</a>
+            </li>
+          </ul>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/sign-in">Log In <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/sign-out">Log Out</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/sign-up">Make An Account</a>
+              </li>
+            </ul>
         </div>
+    </nav>
+    <div class="container">
+      <form class="form-signup" action="/sign-up" method="POST">
+        <h2 class="form-signup-heading">Sign Up</h2>
+
+        <div class="form-group">
+          <input type="text" name="email" class="form-control" placeholder="Email address">
+        </div>
+
+        <div class="form-group">
+          <input type="username" name="username" class="form-control" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+
+        <div class="form-group skills"> What skills can you teach? e.g., "spanish, skateboarding, baking"
+          <input type="existing_skills" name="existing_skills" class="form-control" placeholder="Existing Skills">
+        </div>
+
+        <div class="form-group skills"> What skills do you want to learn? e.g., "rock climbing, french, calligraphy"
+          <input type="desired_skills" name="desired_skills" class="form-control" placeholder="Desired Skills">
+        </div>
+
+        <button class="btn btn-large btn-primary" type="submit">Sign Up</button>
+      </form>
+    </div>
   </body>
 </html>

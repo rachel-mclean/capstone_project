@@ -1,6 +1,6 @@
 body {
-  background-image: url('public/images/background.jpg');
-  background-repeat: no-repeat;
+  background-image: url('/images/background.jpg');
+  background-repeat: repeat;
   background-size: 1536px 1025px;
 }
 
@@ -22,4 +22,14 @@ h1, h2 {
   margin-top: 50px;
   color: white;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+}
+
+.profile-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: space-between;
+  padding: 2%;
+  width: 80%;
+  margin: 2% auto;
 }
