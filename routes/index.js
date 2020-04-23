@@ -20,7 +20,7 @@ router.get('/sign-up', (request, response) => {
 
 router.get('/profiles', async (request, response) => {
   let users = await User.query();
-  response.render('index', { users })
+  response.render('index', { users });
 });
 
 router.post('/sign-up', async (request, response) => {
@@ -58,7 +58,6 @@ router.post('/sign-in', async (request, response) => {
     request.session.userId = user.id;
 
     let users = await User.query();
-
 
     response.render('index', { users })
   } else {
