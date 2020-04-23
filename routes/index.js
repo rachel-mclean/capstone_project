@@ -18,8 +18,9 @@ router.get('/sign-up', (request, response) => {
   response.render('sign-up');
 });
 
-router.get('/profiles', (request, response) => {
-  response.render('partials/allProfiles');
+router.get('/profiles', async (request, response) => {
+  let users = await User.query();
+  response.render('index', { users })
 });
 
 router.post('/sign-up', async (request, response) => {
@@ -65,10 +66,13 @@ router.post('/sign-in', async (request, response) => {
   }
 });
 
+router.get('/sign-out', (request, response) => {
+  let showButtons = true;
+  response.render('index', {showButtons});
+});
+
 router.post('/sign-out', (request, response) => {
   request.session.userId = null;
-
-  response.redirect('/');
 });
 
 module.exports = router;
