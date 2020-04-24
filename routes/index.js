@@ -59,8 +59,6 @@ router.post('/sign-up', async (request, response) => {
 
     let existingSkills = await Skill.query().where('skill', 'in', existingSkillList);
     let desiredSkills = await Skill.query().where('skill', 'in', desiredSkillList);
-    console.log("Existing skills: ", existingSkills)
-    console.log("Desired skills: ", desiredSkills);
 
     await SkillsUsers.query().insert([
       ...existingSkills.map(skill => ({ user_id: user.id, skill_id: skill.id, skill_type: 'existing' })),
