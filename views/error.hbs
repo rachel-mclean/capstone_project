@@ -1,9 +1,9 @@
 <div id="error-page">
   <h2>Error</h2>
 
-  <h3>HTTP {{err.status}} - {{message}}</h3>
+  <h3>HTTP {{error.status}} - {{message}}</h3>
   <p>
-    The web server returned a status of <tt>HTTP {{err.status}} - {{message}}</tt>.
+    The web server returned a status of <tt>HTTP {{error.status}} - {{message}}</tt>.
   </p>
   <p>
     What does that mean? See the MDN documentation for <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{error.status}}">HTTP {{error.status}} {{message}}</a> to learn more. Don't be afraid to ask your instructor or a classmate if you're still unsure.
@@ -20,5 +20,5 @@
     <li>The above information for the sequence of function calls leading up to the error.</li>
   </ol>
 
-  <pre>{{err.stack}}</pre>
+  <pre>{{error.stack}}</pre>
 </div>

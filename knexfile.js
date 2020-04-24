@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/the_know_how_swap_development',
+    connection: 'postgres://localhost:5432/skill_matching_development',
     debug: true,
     migrations: {
       tableName: 'knex_migrations',
@@ -10,7 +10,7 @@ module.exports = {
 
   test: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/the_know_how_swap_test',
+    connection: 'postgres://localhost:5432/skill_matching_test',
     migrations: {
       tableName: 'knex_migrations',
     },

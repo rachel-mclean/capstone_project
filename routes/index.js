@@ -1,5 +1,7 @@
 let Router = require('express-promise-router');
 let User = require('../models/User');
+let Skill = require('../models/Skill')
+let SkillsUsers = require('../models/SkillsUsers')
 
 let router = new Router();
 
@@ -19,7 +21,8 @@ router.get('/sign-up', (request, response) => {
 });
 
 router.get('/profiles', async (request, response) => {
-  let users = await User.query();
+  let users = await User.query().withGraphFetched('[skills(onlyExisting) as existingSkills, skills(onlyDesired) as desiredSkills]');
+
   response.render('index', { users });
 });
 
@@ -34,12 +37,35 @@ router.post('/sign-up', async (request, response) => {
     email: email,
     username: username,
     password: password,
-    existing_skills: existing_skills,
-    desired_skills: desired_skills
   });
 
   if (user) {
     request.session.userId = user.id;
+
+    let existingSkillList = existing_skills.toLowerCase().trim().split(/\s*,\s*/);
+    let desiredSkillList = desired_skills.toLowerCase().trim().split(/\s*,\s*/);
+    let allSkills = existingSkillList.concat(desiredSkillList);
+
+    for (let skill of allSkills) {
+      let result = await Skill.query().findOne({ skill });
+
+      if (!result) {
+        await Skill.query().insert({ skill });
+      }
+    }
+
+    //add right edges
+    //insert into skillsUsers
+
+    let existingSkills = await Skill.query().where('skill', 'in', existingSkillList);
+    let desiredSkills = await Skill.query().where('skill', 'in', desiredSkillList);
+    console.log("Existing skills: ", existingSkills)
+    console.log("Desired skills: ", desiredSkills);
+
+    await SkillsUsers.query().insert([
+      ...existingSkills.map(skill => ({ user_id: user.id, skill_id: skill.id, skill_type: 'existing' })),
+      ...desiredSkills.map(skill => ({ user_id: user.id, skill_id: skill.id, skill_type: 'desired' })),
+    ]);
 
     response.redirect('/');
   } else {
