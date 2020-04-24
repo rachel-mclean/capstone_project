@@ -7,13 +7,21 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">{{username}} can teach these skills:</h4>
-          <p class="card-text">{{existingSkills}}</p>
+          <ul>
+            {{#each existingSkills}}
+              <li>{{skill}}</li>
+            {{/each}}
+          </ul>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">{{username}} wants to learn these skills:</h4>
-          <p class="card-text">{{desiredSkills}}</p>
+          <ul>
+            {{#each desiredSkills}}
+              <li>{{skill}}</li>
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
