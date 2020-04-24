@@ -65,7 +65,7 @@ router.post('/sign-up', async (request, response) => {
       ...desiredSkills.map(skill => ({ user_id: user.id, skill_id: skill.id, skill_type: 'desired' })),
     ]);
 
-    response.redirect('/');
+    response.redirect('/profiles');
   } else {
     response.render('sign-up');
   }
@@ -81,9 +81,7 @@ router.post('/sign-in', async (request, response) => {
   if (passwordValid) {
     request.session.userId = user.id;
 
-    let users = await User.query();
-
-    response.render('index', { users })
+    response.redirect('/profiles');
   } else {
     response.render('sign-in', { invalidLogin: true });
   }
