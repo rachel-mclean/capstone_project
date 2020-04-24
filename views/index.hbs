@@ -6,9 +6,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      {{#if showNavButtons}}
       <li class="nav-item">
         <a class="nav-link active" href="/profiles">Find a Swap</a>
       </li>
+      {{/if}}
       <li class="nav-item">
         <a class="nav-link" href="#">Message Board</a>
       </li>
@@ -25,7 +27,7 @@
             <a class="nav-link" href="/sign-up">Make An Account</a>
           </li>
         </ul>
-    </div>
+      </div>
   </nav>
 
 {{#if showButtons}}
@@ -44,14 +46,5 @@
 <div class="profile-container">
   {{> allProfiles }}
 </div>
-  {{!-- <h2>Welcome!</h2>
-
-  <p>
-    You're logged in as <a href="mailto:{{user.email}}">{{user.email}}</a></span>.
-  </p>
-
-  <form class="form-signout" action="/sign-out" method="POST">
-    <button class="btn btn-large btn-danger" type="submit">Logout</button>
-  </form> --}}
   </div>
 </div>

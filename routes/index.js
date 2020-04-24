@@ -23,7 +23,8 @@ router.get('/sign-up', (request, response) => {
 router.get('/profiles', async (request, response) => {
   let users = await User.query().withGraphFetched('[skills(onlyExisting) as existingSkills, skills(onlyDesired) as desiredSkills]');
 
-  response.render('index', { users });
+  let showNavButtons = true;
+  response.render('index', { users, showNavButtons });
 });
 
 router.post('/sign-up', async (request, response) => {
