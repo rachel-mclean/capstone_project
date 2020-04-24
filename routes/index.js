@@ -85,7 +85,6 @@ router.post('/sign-in', async (request, response) => {
 
     let users = await User.query();
 
-
     response.render('index', { users })
   } else {
     response.render('sign-in', { invalidLogin: true });
