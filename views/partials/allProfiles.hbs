@@ -1,3 +1,14 @@
+
+<div class="welcome">
+    {{#if showingProfiles}}
+        <div class="text-center">
+            <h2>Welcome to The Know-How Swap, {{user.username}}!</h2>
+
+            <p>The profiles below are the best fit for your profile.</p>
+            <p> Now it's up to you to reach out and swap knowledge!</p>
+        </div>
+    {{/if}}
+</div>
 {{#each users}}
     {{> profile}}
 {{/each}}

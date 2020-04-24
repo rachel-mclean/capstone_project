@@ -21,10 +21,13 @@ router.get('/sign-up', (request, response) => {
 });
 
 router.get('/profiles', async (request, response) => {
-  let users = await User.query().withGraphFetched('[skills(onlyExisting) as existingSkills, skills(onlyDesired) as desiredSkills]');
+  if(request.user) {
+    let users = await User.query().withGraphFetched('[skills(onlyExisting) as existingSkills, skills(onlyDesired) as desiredSkills]');
 
-  let showNavButtons = true;
-  response.render('index', { users, showNavButtons });
+    let showNavButtons = true;
+    let showingProfiles = true;
+    response.render('index', { users, user: request.user, showNavButtons, showingProfiles});
+  }
 });
 
 router.post('/sign-up', async (request, response) => {
