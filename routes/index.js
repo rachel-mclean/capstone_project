@@ -22,12 +22,6 @@ router.get('/sign-up', (request, response) => {
 
 router.get('/profiles', async (request, response) => {
   let users = await User.query().withGraphFetched('[skills(onlyExisting) as existingSkills, skills(onlyDesired) as desiredSkills]');
-  let firstUser = users[users.length-1];
-
-  console.log('First user is:', firstUser);
-  console.log('First user ALL SKILLS:', firstUser.skills);
-  console.log('First user EXISTING SKILLS:', firstUser.existingSkills);
-  console.log('First user DESIRED SKILLS:', firstUser.desiredSkills);
 
   response.render('index', { users });
 });
